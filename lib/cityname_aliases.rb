@@ -5,7 +5,7 @@ module CitynameAliases
   def self.get(name)
     unless defined?(@csv)
       @csv = {}
-      CSV.foreach("#{__dir__}/aliases.csv", headers: ["name", "alias"], col_sep: "|") do |row|
+      CSV.foreach("#{__dir__}/aliases.csv", headers: ["alias", "name"], col_sep: "|") do |row|
         @csv[row["alias"].downcase] = row["name"]
       end
     end
